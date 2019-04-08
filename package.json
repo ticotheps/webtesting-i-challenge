@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/ticotheps/webtesting-i-challenge#readme",
   "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
     "test": "jest --watch --verbose"
   },
   "keywords": []
