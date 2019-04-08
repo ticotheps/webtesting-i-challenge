@@ -26,8 +26,8 @@ describe('enhancer.js', () => {
         it('repair() should return null when arguments are not objects that have a durability key with number values', () => {
             expect(repair()).toBeNull(); // no argument passed 
             expect(repair('1')).toBeNull(); // string passed in
-            // expect(repair(undefined)).toBeNull(); // undefined passed in
-            // expect(repair(null)).toBeNull(); // no argument passed in
+            expect(repair(undefined)).toBeNull(); // undefined passed in
+            expect(repair(null)).toBeNull(); // no argument passed in
             // expect(repair()).toBeNull(); // no argument passed in
             // expect(repair()).toBeNull(); // no argument passed in
             // expect(repair()).toBeNull(); // no argument passed in
