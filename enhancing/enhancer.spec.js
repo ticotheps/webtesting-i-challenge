@@ -27,11 +27,10 @@ describe('enhancer.js', () => {
             expect(repair()).toBeNull(); // no argument passed 
             expect(repair('1')).toBeNull(); // string passed in
             expect(repair(undefined)).toBeNull(); // undefined passed in
-            expect(repair(null)).toBeNull(); // no argument passed in
-            // expect(repair()).toBeNull(); // no argument passed in
-            // expect(repair()).toBeNull(); // no argument passed in
-            // expect(repair()).toBeNull(); // no argument passed in
-            // expect(repair()).toBeNull(); // no argument passed in
+            expect(repair(null)).toBeNull(); // null passed in
+            expect(repair({})).toBeNull(); // empty object passed in
+            expect(repair([])).toBeNull(); // empty array passed in
+            expect(repair(NaN)).toBeNull(); // NaN passed in
         });
     });
 
