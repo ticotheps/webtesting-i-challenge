@@ -32,7 +32,19 @@ function succeed(item) {
 }
 
 function fail(item) {
-  return { ...item };
+	if (item === undefined || item === null) {
+		return null;
+	} else if (typeof item === "object" && item.hasOwnProperty("enhancement") && item.hasOwnProperty("durability")) {
+		if (item.enhancement < 15) {
+			item.durability -= 5;
+			return { ...item };
+		} else if (item.enhancement >= 15) {
+			item.durability -= 10;
+			return { ...item };
+		}
+  	} else {
+		return null;
+	}
 }
 
 function get(item) {
