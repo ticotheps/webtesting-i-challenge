@@ -86,7 +86,34 @@ describe('enhancer.js', () => {
             };
 
             expect(fail(item)).toEqual(expected);
-            // expect(succeed({ enhancement: 10 }).enhancement).toBe(5);
+        });
+
+        it('fail() should return null when the argument is not an object that has an enhancement key and a durability key containing number values', () => {
+            expect(fail()).toBeNull(); // no argument passed 
+            expect(fail('1')).toBeNull(); // string passed in
+            expect(fail(undefined)).toBeNull(); // undefined passed in
+            expect(fail(null)).toBeNull(); // null passed in
+            expect(fail({})).toBeNull(); // empty object passed in
+            expect(fail([])).toBeNull(); // empty array passed in
+            expect(fail(NaN)).toBeNull(); // NaN passed in
+        });
+
+        test("decreases item's durability by 10 if item's enhancement is 15 or greater", () => {
+            const item = {
+                name: 'Lambda Shield',
+                durability: 98,
+                enhancement: 15,
+                displayName: '[+3] Lambda Shield'
+            };
+
+            const expected = {
+                name: 'Lambda Shield',
+                durability: 88,
+                enhancement: 15,
+                displayName: '[+3] Lambda Shield'
+            };
+
+            expect(fail(item)).toEqual(expected);
         });
 
         it('fail() should return null when the argument is not an object that has an enhancement key and a durability key containing number values', () => {
