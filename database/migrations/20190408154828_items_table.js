@@ -9,7 +9,7 @@ exports.up = function(knex) {
 
         items.integer('durability').notNullable();
 
-        items.integer('enhancement'.notNullable();
+        items.integer('enhancement').notNullable();
 
         items.string('displayName', 128).notNullable();
     });
