@@ -54,5 +54,17 @@ function fail(item) {
 }
 
 function get(item) {
-  return { ...item };
+	if (item === undefined || item === null) {
+		return null;
+	} else if (typeof item === "object" && item.hasOwnProperty("enhancement") && item.hasOwnProperty("displayName")) {
+		if (item.enhancement === 0) {
+			return item;
+		} else if (item.enhancement > 0) {
+			const enhanced = "[+" + item.enhancement + "] ";
+			item.displayName =  enhanced.concat(item.displayName);
+			return { ...item };
+		}
+  	} else {
+		return null;
+	}
 }

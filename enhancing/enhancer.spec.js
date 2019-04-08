@@ -88,16 +88,6 @@ describe('enhancer.js', () => {
             expect(fail(item)).toEqual(expected);
         });
 
-        it('fail() should return null when the argument is not an object that has an enhancement key and a durability key containing number values', () => {
-            expect(fail()).toBeNull(); // no argument passed 
-            expect(fail('1')).toBeNull(); // string passed in
-            expect(fail(undefined)).toBeNull(); // undefined passed in
-            expect(fail(null)).toBeNull(); // null passed in
-            expect(fail({})).toBeNull(); // empty object passed in
-            expect(fail([])).toBeNull(); // empty array passed in
-            expect(fail(NaN)).toBeNull(); // NaN passed in
-        });
-
         // -----------------------------------------------------------------------------------------
         // If the item's enhancement is 15 or more, the durability of the item is decreased by 10.
         test("decreases item's durability by 10 if item's enhancement is 15 or greater", () => {
@@ -116,16 +106,6 @@ describe('enhancer.js', () => {
             };
 
             expect(fail(item)).toEqual(expected);
-        });
-
-        it('fail() should return null when the argument is not an object that has an enhancement key and a durability key containing number values', () => {
-            expect(fail()).toBeNull(); // no argument passed 
-            expect(fail('1')).toBeNull(); // string passed in
-            expect(fail(undefined)).toBeNull(); // undefined passed in
-            expect(fail(null)).toBeNull(); // null passed in
-            expect(fail({})).toBeNull(); // empty object passed in
-            expect(fail([])).toBeNull(); // empty array passed in
-            expect(fail(NaN)).toBeNull(); // NaN passed in
         });
 
         // -----------------------------------------------------------------------------------------
@@ -160,5 +140,56 @@ describe('enhancer.js', () => {
 
     });
 
-    describe('get()', () => {});
+    describe('get()', () => {
+        // if the enhancement level is 0, then the displayName is not modified.
+        test("makes no changes to the displayName if enhancement is equal to 0", () => {
+            const item = {
+                name: 'Lambda Shield',
+                durability: 98,
+                enhancement: 0,
+                displayName: 'Lambda Shield'
+            };
+
+            const expected = {
+                name: 'Lambda Shield',
+                durability: 98,
+                enhancement: 0,
+                displayName: 'Lambda Shield'
+            };
+
+            expect(get(item)).toEqual(expected);
+        });
+
+        // -----------------------------------------------------------------------------------------
+        // if the enhancement level is greater than 0, change the name to include the enhancement
+        // level, preceded by a plus sign ( + ), between square brackets before the item's name. 
+        // Example: the name of a "Iron Sword" enhanced to 7 would be "[+7] Iron Sword".
+        test("changes the displayName to include: a plus sign, square brackets, and the enhancement level, IF enhancement is greater than 0", () => {
+            const item = {
+                name: 'Lambda Shield',
+                durability: 98,
+                enhancement: 3,
+                displayName: 'Lambda Shield'
+            };
+
+            const expected = {
+                name: 'Lambda Shield',
+                durability: 98,
+                enhancement: 3,
+                displayName: '[+3] Lambda Shield'
+            };
+
+            expect(get(item)).toEqual(expected);
+        });
+
+        it('get() should return null when the argument is not an object that has an enhancement key and a durability key containing number values', () => {
+            expect(get()).toBeNull(); // no argument passed 
+            expect(get('1')).toBeNull(); // string passed in
+            expect(get(undefined)).toBeNull(); // undefined passed in
+            expect(get(null)).toBeNull(); // null passed in
+            expect(get({})).toBeNull(); // empty object passed in
+            expect(get([])).toBeNull(); // empty array passed in
+            expect(get(NaN)).toBeNull(); // NaN passed in
+        });
+    });
 });
