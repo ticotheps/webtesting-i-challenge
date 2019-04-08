@@ -69,7 +69,7 @@ describe('enhancer.js', () => {
     });
 
     describe('fail()', () => {
-
+        // If the item's enhancement is less than 15, the durability of the item is decreased by 5.
         test("decreases item's durability by 5 if item's enhancement is less than 15", () => {
             const item = {
                 name: 'Lambda Shield',
@@ -98,8 +98,8 @@ describe('enhancer.js', () => {
             expect(fail(NaN)).toBeNull(); // NaN passed in
         });
 
-        //-------------------------------------------------------------------
-
+        // -----------------------------------------------------------------------------------------
+        // If the item's enhancement is 15 or more, the durability of the item is decreased by 10.
         test("decreases item's durability by 10 if item's enhancement is 15 or greater", () => {
             const item = {
                 name: 'Lambda Shield',
@@ -128,8 +128,8 @@ describe('enhancer.js', () => {
             expect(fail(NaN)).toBeNull(); // NaN passed in
         });
 
-        //-------------------------------------------------------------------
-
+        // -----------------------------------------------------------------------------------------
+        // If the item's enhancement level is greater than 16, the enhancement level decreases by 1.
         test("decreases item's durability by 10 AND decreases its enhancement by 1, if item's enhancement is greater than 16", () => {
             const item = {
                 name: 'Lambda Shield',
