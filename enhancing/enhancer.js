@@ -39,8 +39,14 @@ function fail(item) {
 			item.durability -= 5;
 			return { ...item };
 		} else if (item.enhancement >= 15) {
-			item.durability -= 10;
-			return { ...item };
+			if (item.enhancement > 16) {
+				item.enhancement -= 1;
+				item.durability -= 10;
+				return { ...item };
+			} else {
+				item.durability -= 10;
+				return { ...item };
+			}
 		}
   	} else {
 		return null;
