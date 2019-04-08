@@ -10,12 +10,14 @@ describe('enhancer.js', () => {
             const item = {
                 name: 'Lambda Shield',
                 durability: 98,
+                enhancement: 2,
                 displayName: '[+3] Lambda Shield'
             };
 
             const expected = {
                 name: 'Lambda Shield',
                 durability: 100,
+                enhancement: 2,
                 displayName: '[+3] Lambda Shield'
             };
 
