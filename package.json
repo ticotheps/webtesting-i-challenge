@@ -2,11 +2,23 @@
   "name": "webtesting-i-challenge",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/ticotheps/webtesting-i-challenge.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ticotheps/webtesting-i-challenge.git"
+  },
   "author": "Tico S. Thepsourinthone <ticotheps@gmail.com>",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "jest": "^24.7.1"
-  }
+  },
+  "description": "In this project, you will demonstrate proficiency by writing unit tests and production code to satisfy the _Minimum Viable Product_ described below.",
+  "bugs": {
+    "url": "https://github.com/ticotheps/webtesting-i-challenge/issues"
+  },
+  "homepage": "https://github.com/ticotheps/webtesting-i-challenge#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": []
 }
