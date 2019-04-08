@@ -17,7 +17,8 @@ function repair(item) {
 }
 
 function succeed(item) {
-  return { ...item };
+	item.enhancement += 1;
+	return { ...item };
 }
 
 function fail(item) {
