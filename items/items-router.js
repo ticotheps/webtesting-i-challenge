@@ -18,4 +18,16 @@ router.get('/:id', (req, res) => {
     .catch(err => res.send(err));
 });
 
+router.post('/new', (req, res) => {
+    let item = req.body;
+
+    Items.add(item)
+      .then(saved => {
+        res.status(201).json(saved);
+      })
+      .catch(error => {
+        res.status(500).json(error);
+      });
+});
+
 module.exports = router;
