@@ -1,7 +1,7 @@
 const express = require('express');
 
 const configureMiddleware = require('./middleware.js');
-const itemsRouter = require('../users/items-router.js');
+const itemsRouter = require('../items/items-router.js');
 
 const server = express();
 
