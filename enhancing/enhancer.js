@@ -5,16 +5,16 @@ module.exports = {
   get,
 };
 
-function succeed(item) {
-  // return { ...item };
-  return null;
-}
-
-function fail(item) {
+function repair(item) {
+  item.durability = 100;
   return { ...item };
 }
 
-function repair(item) {
+function succeed(item) {
+  return { ...item };
+}
+
+function fail(item) {
   return { ...item };
 }
 
