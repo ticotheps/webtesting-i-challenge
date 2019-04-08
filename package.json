@@ -4,5 +4,9 @@
   "main": "index.js",
   "repository": "https://github.com/ticotheps/webtesting-i-challenge.git",
   "author": "Tico S. Thepsourinthone <ticotheps@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^24.7.1"
+  }
 }
