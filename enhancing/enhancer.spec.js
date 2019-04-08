@@ -25,7 +25,7 @@ describe('enhancer.js', () => {
             // expect(repair({ durability: 43 }).durability).toBe(100);
         });
 
-        it('repair() should return null when arguments are not objects that have a durability key with number values', () => {
+        it('repair() should return null when the argument is not an object that has a durability key containing a number value', () => {
             expect(repair()).toBeNull(); // no argument passed 
             expect(repair('1')).toBeNull(); // string passed in
             expect(repair(undefined)).toBeNull(); // undefined passed in
@@ -57,7 +57,7 @@ describe('enhancer.js', () => {
             // expect(succeed({ enhancement: 2 }).enhancement).toBe(3);
         });
 
-        it('succeed() should return null when arguments are not objects that have an enhancement and a durability key with number values', () => {
+        it('succeed() should return null when the argument is not an object that has an enhancement key and a durability key containing number values', () => {
             expect(succeed()).toBeNull(); // no argument passed 
             expect(succeed('1')).toBeNull(); // string passed in
             expect(succeed(undefined)).toBeNull(); // undefined passed in
@@ -89,7 +89,7 @@ describe('enhancer.js', () => {
             // expect(succeed({ enhancement: 10 }).enhancement).toBe(5);
         });
 
-        it('fail() should return null when arguments are not objects that have an enhancement and a durability key with number values', () => {
+        it('fail() should return null when the argument is not an object that has an enhancement key and a durability key containing number values', () => {
             expect(fail()).toBeNull(); // no argument passed 
             expect(fail('1')).toBeNull(); // string passed in
             expect(fail(undefined)).toBeNull(); // undefined passed in
